@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
+using ConsoleAppProject.App01;
 
 namespace ConsoleAppProject
 {
@@ -20,6 +21,12 @@ namespace ConsoleAppProject
             
             Console.WriteLine("BNU CO453 Applications Programming 2021-2022!");
             Console.WriteLine();
+
+            DistanceConverter converter = new DistanceConverter();
+            converter.MilesToFeet();
+            converter.FeetToMiles();
+            converter.MilesToMetres();
+
         }
     }
 }
