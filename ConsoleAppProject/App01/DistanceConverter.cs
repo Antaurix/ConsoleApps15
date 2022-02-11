@@ -80,7 +80,6 @@ namespace ConsoleAppProject.App01
         {
            
             feet = (miles * FEET_IN_MILES);
-            feet =+ 1;
         }
         private void CalculateMiles()
         {
