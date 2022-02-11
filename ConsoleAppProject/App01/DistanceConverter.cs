@@ -31,15 +31,19 @@ namespace ConsoleAppProject.App01
 
         public void FeetToMiles()
         {
-            OutputHeading();
-            InputMiles();
+            Console.WriteLine("                                         ");
+            Console.WriteLine(" ----- Converting feet into miles -----  ");
+            Console.WriteLine("                                         ");
+            InputFeet();
             CalculateMiles();
             OutputMiles();
         }
 
         public void MilesToMetres()
         {
-            OutputHeading();
+            Console.WriteLine("                                         ");
+            Console.WriteLine(" ----- Converting miles to metres ----- ");
+            Console.WriteLine("                                         ");
             InputMetres();
             CalculateMetres();
             OutputMetres();
@@ -70,19 +74,25 @@ namespace ConsoleAppProject.App01
             metres = Convert.ToDouble(value);
         }
 
+        // Those methods will convert the miles in feet , miles in metres & feet in miles.
+
         private void CalculateFeet()
         {
-            miles = feet * FEET_IN_MILES;
+           
+            feet = (miles * FEET_IN_MILES);
+            feet =+ 1;
         }
         private void CalculateMiles()
         {
             feet = miles / FEET_IN_MILES;
+          
         }
         private void CalculateMetres()
         {
             metres = miles * METRES_IN_MILES;
         }
 
+        // The methods down bellow will display in the CMD prompt the result converted in the desired measurement.
         private void OutputMiles()
         {
             Console.WriteLine(feet + "feet is ->" + miles + "miles!");
