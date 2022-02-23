@@ -3,7 +3,8 @@ using ConsoleAppProject;
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This app will convert the chosen unit to another desired unit 
+    /// displaying the choices in the console.
     /// </summary>
     /// <author>
     /// Student Name version 0.1
@@ -12,11 +13,12 @@ namespace ConsoleAppProject.App01
     {
         public const int FEET_IN_MILES = 5280;
         public const double METRES_IN_MILES = 1609.34;
+        public const double FEET_IN_METRES = 0.3048;
 
         public const string FEET = "feet";
         public const string MILES = "miles";
         public const string METRES = "metres";
-
+        
         private double fromDistance;
         private double toDistance;
 
@@ -30,58 +32,106 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// The method down bellow will input the distance in miles, 
-        /// calculate the entered distance in feet and 
-        /// display the distance in feet.
+        /// The method down bellow will be the main method which 
+        /// will be used to convert a unit to another.
         /// </summary>
         /// 
 
 
         public void ConvertDistance()
         {
-            fromUnit = SelectUnit("Please chose the FROM distance unit -> ");
-            toUnit = SelectUnit("Select the TO distance unit ->");
-            OutputHeading($" Converting  {fromUnit} to { toUnit} !");
-            fromDistance = InputDistance($" Enter the number of  {fromUnit} !");
-
+            OutputHeading();
+            fromUnit = SelectUnit(" Please chose the FROM distance unit -> ");
+            toUnit = SelectUnit(" Select the TO distance unit ->");
+            Console.WriteLine($"Converting {fromUnit} to {toUnit} ");
+            fromDistance = InputDistance($" Enter the number of  {fromUnit} ! ");
             CalculateDistance();
-
             OutputDistance();
         }
 
+        /// <summary>
+        /// This method is converting the chosen unit to the desired one.
+        /// </summary>
         private void CalculateDistance()
         {
-            if(fromUnit == MILES && toUnit == FEET)
+            if (fromUnit == MILES && toUnit == FEET)
             {
-                toDistance = fromDistance * FEET_IN_MILES;
+                toDistance = (fromDistance * FEET_IN_MILES);
             }
+            else if (fromUnit == MILES && toUnit == METRES)
+            {
+                toDistance = (fromDistance * METRES_IN_MILES);
+            }
+            else if (fromUnit == FEET && toUnit == MILES)
+            {
+                toDistance = (fromDistance / FEET_IN_MILES);
+            }
+            else if (fromUnit == FEET && toUnit == METRES)
+            {
+                toDistance = (fromDistance / FEET_IN_METRES);
+            }
+
+            else if (fromUnit == METRES && toUnit == MILES)
+            {
+                toDistance = (fromDistance / METRES_IN_MILES);
+            }
+            else if (fromUnit == METRES && toUnit == FEET)
+            {
+                toDistance = (fromDistance * FEET_IN_METRES);
+            }
+            return;
         }
 
+        /// <summary>
+        /// This method is displaying the options that you can chose
+        /// from a list inside the console.
+        ///
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
-            return ExecuteChoice(choice);
-            
+            string unit = ExecuteChoice(choice);
+            Console.WriteLine($" you choosed {unit}");
+            return unit;
         }
 
+        /// <summary>
+        /// This method will execute the selected choice that you made above.
+        /// </summary>
+        /// <param name="choice"></param>
+        /// <returns></returns>
         private static string ExecuteChoice(string choice)
         {
+            string unit = " Invalid Choice ";
+            while (choice != unit)
+            {
+      
+                if (choice.Equals("1"))
+                {
+                    return FEET;
 
-            if (choice.Equals(1))
-            {
-                return FEET;
-            }
-            else if (choice.Equals(2))
-            {
-                return METRES;
-            }
-            else if (choice.Equals(3))
-            {
-                return MILES;
-            }
+                }
+                else if (choice.Equals("2"))
+                {
+                    return METRES;
 
+
+                }
+                else if (choice.Equals("3"))
+                {
+                    return MILES;
+                }
+                Console.WriteLine("You chosed an invalid option ");
+                Console.WriteLine(" ");
+
+                return unit;
+            }
             return null;
-        }
+           }
+
+      
 
         private static string DisplayChoices(string prompt)
         {
@@ -96,8 +146,6 @@ namespace ConsoleAppProject.App01
             return choice;
         }
 
-
-
         /// <summary>
         /// A method that will allow the user to input a number of miles, feet and metres.
         /// </summary>
@@ -111,7 +159,6 @@ namespace ConsoleAppProject.App01
 
         
 
-        // Those methods will convert the miles in feet , miles in metres & feet in miles.
 
        
 
@@ -126,10 +173,10 @@ namespace ConsoleAppProject.App01
         ///The output method that will display the conversion in miles , feet and metres.
         /// </summary>
         /// 
-        private void OutputHeading(string title)
+        private void OutputHeading()
         {
             Console.WriteLine("\n ----------------------------------------- ");
-            Console.WriteLine($"{title}            ");
+            Console.WriteLine("             Converter of unit               ");
             Console.WriteLine("                by Ionut Boris               ");
             Console.WriteLine("\n ----------------------------------------- ");
         }
