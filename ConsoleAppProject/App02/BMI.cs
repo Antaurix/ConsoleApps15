@@ -16,6 +16,9 @@ namespace ConsoleAppProject.App02
         Imperial,
     }
 
+    /// <summary>
+    /// Creating the variables that i will be using in the programm.
+    /// </summary>
     public class BMI
     {
         public const int POUNDS_IN_STONES = 14;
@@ -35,6 +38,11 @@ namespace ConsoleAppProject.App02
 
         public double indexBMI;
 
+        /// <summary>
+        /// Displaying the title of the app and 
+        /// calling the main methods that will be used
+        /// to calculate the body index.
+        /// </summary>
         public void CalculateIndex()
         {
             Console.WriteLine("-------------------------------");
@@ -59,6 +67,10 @@ namespace ConsoleAppProject.App02
 
         }
 
+        /// <summary>
+        /// Selecting the measurement unit that we would like (metric or imperial)
+        /// </summary>
+        /// <returns></returns>
         private UnitSystems SelectUnits()
         {
             Console.WriteLine("1. Imperial ");
@@ -69,6 +81,11 @@ namespace ConsoleAppProject.App02
             else return UnitSystems.Metric;
         }
 
+        /// <summary>
+        /// Reading the desired number from the console.
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         public double InputNumber(string prompt)
         {
             Console.WriteLine(prompt);
@@ -77,6 +94,12 @@ namespace ConsoleAppProject.App02
             return number; 
         }
 
+
+        /// <summary>
+        /// Adding the imperial details and 
+        /// convert height into inches and 
+        /// weight into pounds.
+        /// </summary>
         private void InputImperialDetails()
         {
             Console.WriteLine("Input your weight \n");
@@ -89,12 +112,18 @@ namespace ConsoleAppProject.App02
             inch += (int)feet * INCHES_IN_FEET;
         }
 
+        /// <summary>
+        /// Enetering the metric details.
+        /// </summary>
         private void InputMetricDetails()
         {
             metre = InputNumber("Input height in metres - > ");
             kilogram = InputNumber("Input weight in kilograms -> ");
         }
 
+        /// <summary>
+        /// Calculating the BMI based on imperial units.
+        /// </summary>
         public void CalculateImperialBMI()
         {
             indexBMI = pound * 703 / (inch * inch);
@@ -106,6 +135,9 @@ namespace ConsoleAppProject.App02
             indexBMI = kilogram / (metre * metre);
         }
 
+        /// <summary>
+        /// Displaying the BMI with the correct health message for each class.
+        /// </summary>
         public void OutputHealthMessage()
         {
             if (indexBMI < UNDERWEIGHT)
@@ -134,6 +166,9 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        /// <summary>
+        /// Displaying heading.
+        /// </summary>
         public void OutputBameMessage()
         {
             Console.WriteLine("---------------------- *** ----------------- " );
