@@ -91,8 +91,19 @@ namespace ConsoleAppProject.App01
         /// <returns></returns>
         private string SelectUnit(string prompt)
         {
-            string choice = DisplayChoices(prompt);
-            string unit = ExecuteChoice(choice);
+            
+         //  while 
+        //        {
+             string choice = DisplayChoices(prompt);
+         //       if choice.Equals(){
+         //           errormessage
+
+       //        }
+
+
+         //}
+
+            string unit = ExecuteChoice(choice);           
             Console.WriteLine($" you choosed {unit}");
             return unit;
         }
@@ -105,8 +116,7 @@ namespace ConsoleAppProject.App01
         private static string ExecuteChoice(string choice)
         {
             string unit = " Invalid Choice ";
-            while (choice != unit)
-            {
+            
       
                 if (choice.Equals("1"))
                 {
@@ -125,9 +135,7 @@ namespace ConsoleAppProject.App01
                 }
                 Console.WriteLine("You chosed an invalid option ");
                 Console.WriteLine(" ");
-
-                return unit;
-            }
+     
             return null;
            }
 
