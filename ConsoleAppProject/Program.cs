@@ -3,6 +3,7 @@ using ConsoleAppProject.Helpers;
 using System;
 using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App04;
 
 namespace ConsoleAppProject
 {
@@ -19,6 +20,7 @@ namespace ConsoleAppProject
         private static DistanceConverter converter = new DistanceConverter();
         private static BMI calculator = new BMI();
         private static StudentGrades marks = new StudentGrades();
+        private static NetworkApp app04 = new NetworkApp();
 
         public static void Main(string[] args)
         {
@@ -31,6 +33,7 @@ namespace ConsoleAppProject
             Console.WriteLine("\n 1. Distance Converter \n");
             Console.WriteLine("\n 2. BMI Calculator \n");
             Console.WriteLine("\n 3. Student Grades \n ");
+            Console.WriteLine("\n 4. Social Network \n ");
             Console.WriteLine("Enter your choice ! -> ");
             string option = Console.ReadLine();
 
@@ -45,6 +48,10 @@ namespace ConsoleAppProject
             else if(option == "3")
             {
                 marks.Run();
+            }
+            else if(option == "4")
+            {
+                app04.DisplayMenu();
             }
         }
     }

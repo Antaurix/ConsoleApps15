@@ -16,10 +16,11 @@ namespace ConsoleAppProject.App04
     ///</summary>
     ///<author>
     ///  Michael Kölling and David J. Barnes
-    ///  version 0.1
+    ///  Modified by Ionut Boris.
     ///</author> 
     public class NewsFeed
     {
+        public const string AUTHOR = "Ionut Boris";
         private readonly List<Post> posts;
         
 
@@ -29,6 +30,12 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
+            Console.WriteLine("  ");
+            MessagePost post = new MessagePost(AUTHOR,"Make Peace ! Not War !");
+            AddMessagePost(post);
+
+            PhotoPost photoPost = new PhotoPost(AUTHOR,"Photo1.jpg","Network App");
+            AddPhotoPost(photoPost);
         }
 
 
@@ -50,6 +57,40 @@ namespace ConsoleAppProject.App04
         public void AddPhotoPost(PhotoPost photo)
         {
             posts.Add(photo);
+        }
+
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($"Post with ID -> ,{id} doesn't exist !\n");
+            }
+            else
+            {
+                Console.WriteLine($"\n The following post {id} has been removed \n");
+                if (post is MessagePost mp)
+                {
+                    mp.Display();
+                }
+                else if(post is PhotoPost pp)
+                {
+                    pp.Display();
+                }
+                posts.Remove(post);
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if(post.PostId == id)
+                {
+                    return post;
+                }
+            }
+            return null;
         }
 
         ///<summary>

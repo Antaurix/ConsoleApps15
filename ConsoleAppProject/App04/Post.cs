@@ -6,6 +6,9 @@ namespace ConsoleAppProject.App04
 {
     public class Post
     {
+        public int PostId { get; }
+        private static int instances = 0;
+
         private int likes;
 
         private readonly List<String> comments;
@@ -21,6 +24,8 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public Post(string author)
         {
+            instances++;
+            PostId = instances;
             this.Username = author;
             Timestamp = DateTime.Now;
             likes = 0;
@@ -54,7 +59,7 @@ namespace ConsoleAppProject.App04
             comments.Add(text);
         }
 
-        public void Display()
+        public virtual void Display()
         {
             Console.WriteLine();
             Console.WriteLine($"    Author: {Username}");
@@ -107,6 +112,11 @@ namespace ConsoleAppProject.App04
             {
                 return seconds + " seconds ago";
             }
+        }
+
+        internal static double GetNumberOfPosts()
+        {
+            throw new NotImplementedException();
         }
     }
 }

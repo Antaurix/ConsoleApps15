@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App04
     /// </summary>
     /// <author>
     /// Michael Kölling and David J. Barnes
-    /// version 0.1
+    /// modified by Ionut Boris.
     /// </author>
     public class MessagePost: Post
     {
@@ -32,6 +32,12 @@ namespace ConsoleAppProject.App04
         {
             Message = text;
 
+        }
+
+        public override void Display()
+        {
+            Console.Write($"Message: { Message}");
+            base.Display();
         }
     }
 }
