@@ -39,6 +39,7 @@ namespace ConsoleAppProject.App04
                     case 8: DisplayByAuthor();break;
                     case 9: wantToQuit = true; break;
                 }
+                DisplayMenu();
 
 
             } while (wantToQuit);
@@ -109,7 +110,7 @@ namespace ConsoleAppProject.App04
         private void RemovePost()
         {
             ConsoleHelper.OutputTitle($"Removing a post  :");
-            int id = (int)ConsoleHelper.InputNumber("Please enter the post ID -> ", 1, Post.GetNumberOfPosts());
+            int id = (int)ConsoleHelper.InputNumber("Please enter the post ID -> ");
             news.RemovePost(id);
         }
 

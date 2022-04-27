@@ -34,6 +34,7 @@ namespace ConsoleAppProject.App04
             MessagePost post = new MessagePost(AUTHOR,"Make Peace ! Not War !");
             AddMessagePost(post);
 
+
             PhotoPost photoPost = new PhotoPost(AUTHOR,"Photo1.jpg","Network App");
             AddPhotoPost(photoPost);
         }

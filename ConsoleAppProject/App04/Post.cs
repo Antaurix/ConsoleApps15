@@ -64,7 +64,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine();
             Console.WriteLine($"    Author: {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
-            Console.WriteLine();
+            Console.WriteLine($"    ------------------------ >     ID: {PostId}");
 
             if (likes > 0)
             {
